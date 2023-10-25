@@ -9,5 +9,5 @@ EMAIL=_ur__mail-id__here
 
 PASS=__Ur_Pass_here__
 
-Disclaimer: works only for gmail accounts, also having admin access(specifically college configured student mail ids)
+Disclaimer: works only for gmail accounts, also having option to control Less Secure Apps setting (specifically college configured student mail ids)
 
