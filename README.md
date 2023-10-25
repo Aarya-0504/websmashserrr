@@ -6,5 +6,6 @@ For trying out,
 in the server directory, create a *.env* file with vars as follows:
 
 EMAIL=_ur__port__here
+
 PASS=__Ur_Pass_here__
 
