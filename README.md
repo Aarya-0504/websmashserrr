@@ -4,6 +4,7 @@ So this is a site which will mail you random quotes on providing your email as a
 
 For trying out,
 in the server directory, create a *.env* file with vars as follows:
+
 EMAIL=_ur__port__here
 PASS=__Ur_Pass_here__
 
