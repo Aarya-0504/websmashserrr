@@ -43,12 +43,12 @@ const sendEmail=async (email,quoteData)=>{
             body:JSON.stringify(dataToSend),
         })
 
-        if (!response.ok) {
-            throw new Error('Failed to send data to the server');
-          }
-        return response.text();
+        // if (!response.ok) {
+        //     throw new Error('Failed to send data to the server');
+        //   }
+        return response;
       }catch (error) {
-    console.error(error);
+    //console.error(error);
     throw error;
   }
 }
@@ -59,11 +59,10 @@ const sendEmail=async (email,quoteData)=>{
   
     try {
       const quoteResult = await fetchQuotes();
-      console.log('Quote data: ', quoteResult.content);
+      console.log('Quote data: ', quoteResult);
       
        const emailResult = await sendEmail(email, quoteResult);
     //    console.log('Email response: ', emailResult);
-  
       // Handle the response data as needed
     } catch (error) {
       // Handle errors here
@@ -72,11 +71,14 @@ const sendEmail=async (email,quoteData)=>{
   };
   return (
     <div className="homepage">
-      <Typist
+      <Typist Cursor
         options={{
           strings: [
-            '<span class="quote" >"Tit For Tat!"</span>',
-            '<span class="quote">"Time and Tide Waits for NONE!"</span>',
+            '<span class="quote" >"Two things are infinite: the universe and human stupidity; and I am not sure about the universe."</span>',
+            '<span class="quote">"Be the change that you wish to see in the world."</span>',
+            '<span class="quote">"“In three words I can sum up everything I have learned about life: it goes on.”"</span>',
+            '<span class="quote">"If you tell the truth, you do not have to remember anything."</span>',
+            '<span class="quote">"Be the change that you wish to see in the world."</span>',
           ],
           autoStart: true,
           loop: true,
@@ -86,10 +88,11 @@ const sendEmail=async (email,quoteData)=>{
       ></Typist>
       <div>
         <form onSubmit={handleFormSubmit} className="form">
-          <label htmlFor="email">Email:</label>
+          <label  htmlFor="email"></label>
           <input
             type="email"
             id="email"
+            placeholder='       johndoe@gmail.com'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -97,6 +100,20 @@ const sendEmail=async (email,quoteData)=>{
           <button type="submit">Send</button>
         </form>
         
+      </div>
+      <div>
+      <Typist Cursor
+        options={{
+          strings: [
+            '<span class="quote" >This is a Random Quotes Emailing Website.</span>',
+            '<span class="quote">Enter your email id, and get Random email quotes sent in your inbox.</span>'
+          ],
+          autoStart: true,
+          loop: true,
+          delay: 200,
+          deleteSpeed: "natural",
+        }}
+      ></Typist>
       </div>
       <video className="video-background"
   autoPlay

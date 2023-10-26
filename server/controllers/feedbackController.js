@@ -6,6 +6,7 @@ const nodemailer = require("nodemailer");
 // @Access Public
 const feedback = async (req, res) => {
   console.log(req.body);
+ // console.log(req.body.quoteData.originator.name);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
@@ -27,7 +28,9 @@ const feedback = async (req, res) => {
     `<div>
     <p>From: ${process.env.EMAIL}</p>
     <p>Subject: Quotes</p>
+    <p>Quoted By: ${req.body.quoteData.originator.name}</p>
     <p>Quote: ${req.body.quoteData.content}</p>
+    <p> Person Biography: ${req.body.quoteData.originator.description}</p>
     </div>`,
   };
   transporter.sendMail(mailOptions, function (error, info) {
